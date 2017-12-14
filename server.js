@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-var mysql = require("mysql");
+var db = require("./models");
 
 /*
 	*TODO: Create controller
@@ -22,6 +22,8 @@ var mysql = require("mysql");
 // app.use("/", routes);
 
 
-app.listen(PORT, function() {
-  console.log("App listening on PORT: " + PORT);
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
