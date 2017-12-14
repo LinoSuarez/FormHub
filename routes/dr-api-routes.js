@@ -1,4 +1,4 @@
-var db = require("../models/doctor.js");
+var db = require("../models");
 
 module.exports = function(app) {
 
@@ -7,8 +7,8 @@ module.exports = function(app) {
     db.Doctor.create({
       name: req.body.name,
       email: req.body.email,
-      dr_username: req.body.dr_username,
-      dr_password: req.body.dr_password
+      username: req.body.username,
+      password: req.body.password
     })
     .then(function(dbDoctor) {
       res.json(dbDoctor);
