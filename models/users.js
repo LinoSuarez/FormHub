@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Doctor = sequelize.define("Doctor", {
+    var Users = sequelize.define("Users", {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -19,7 +19,11 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.STRING,
           allowNull: false,
           len: [1]
+      },
+      token: {
+        type: DataTypes.STRING,
+        allowNull: true
       }
     });
-    return Doctor;
+    return Users;
   };

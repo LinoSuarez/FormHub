@@ -1,8 +1,82 @@
 var path = require("path");
+var db = require("../models");
 
 module.exports = function(app) {
 
-    app.get("/dr_reg", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/dr_reg.html"));
+    app.get("/registration", function(req, res) {
+        var token = req.cookies.token
+        var username = req.cookies.username
+
+        db.Users.findOne({
+            where: {
+                username: username,
+                token: token
+            }
+        }).then(function(matched){
+            
+            if (matched) {
+                res.redirect("/")
+            } else {
+                res.render("registration")
+            }
+            
+        })
       });
+      app.get("/login", function(req, res) {
+        var token = req.cookies.token
+        var username = req.cookies.username
+
+        db.Users.findOne({
+            where: {
+                username: username,
+                token: token
+            }
+        }).then(function(matched){
+            
+            if (matched) {
+                res.redirect("/")
+            } else {
+                res.render("login")
+            }
+            
+        }) 
+      });
+      app.get("/", function(req, res){
+        var token = req.cookies.token
+        var username = req.cookies.username
+
+        db.Users.findOne({
+            where: {
+                username: username,
+                token: token
+            }
+        }).then(function(matched){
+            
+            if (matched) {
+                res.render("index", {username: username})
+            } else {
+                res.render("login")
+            }
+            
+        })
+          
+      })
+      app.get("/logout", function(req, res){
+        var token = req.cookies.token
+        var username = req.cookies.username
+
+        db.Users.update({
+            token: null},
+            {where: {
+                username: username,
+                token: token
+            }
+        }).then(function(matched){
+            
+           res.redirect("/login");
+            
+        })
+          
+      })
+
 };
