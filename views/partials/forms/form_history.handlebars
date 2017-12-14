@@ -2,33 +2,25 @@
 <html>
 <head>
   <title>Medical History</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
 
-
-<div class = "container">
-
-<form class="" action="" method="post" name="form_73467989284175" id="73467989284175" accept-charset="utf-8">
-  <input type="hidden" name="formID" value="73467989284175" />
+<div class ="container">
+  <form class="" action="" method="post" name="form_history" id="form_2" accept-charset="utf-8">
   <div class="form-all">
-        <div class="form-header-group ">
-          <div class="header-text httal htvam">
-            <h2 id="header_1" class="form-header" data-component="header">
+          <div class="header">
+            <h2 id="header_2" class="form-header">
               Medical History
             </h2>
           </div>
-        </div>
         <hr>
 
-        <label class="form-label form-label-top form-label-auto" id="label_3" for="first_3">
+<!-- Basic name information GROUP 1-->
+      <div class="basic_info" id="question_group_1">
+        <label class="form-label form-label-top form-label-auto" id="label_1" for="first_3">
           Full Name
-          <span class="form-required">
-            *
-          </span>
         </label>
         <div id="cid_3" class="form-input-wide jf-required">
           <div data-wrapper-react="true">
@@ -43,11 +35,9 @@
           </div>
         </div>
         <br>
-        <label class="form-label form-label-top form-label-auto" id="label_4" for="input_4_area">
+
+        <label class="form-label form-label-top form-label-auto" id="label_2" for="input_2_area">
           Phone Number
-          <span class="form-required">
-            *
-          </span>
         </label>
         <div id="cid_4" class="form-input-wide jf-required">
           <div data-wrapper-react="true">
@@ -64,176 +54,158 @@
             </span>
           </div>
         </div>
+       </div> 
         <hr>
 
-      <!-- Checklist of past conditions -->      
-        <label class="form-label form-label-top" id="label_5" for="input_5_0">
+      <!-- Checklist of past conditions GROUP 2 -->  
+    <div class="checklist" id="question_group_2">
+      <label class="checklist_label" id="checklist_label_1">
           Check the conditions that apply to you or to any members of your immediate relatives:
          
-        </label>
-        <div id="cid_5" class="form-input-wide jf-required">
+      </label>
+        <div id="checklist_conditions">
           <div class="form-single-column" data-component="checkbox">
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_5_0" name="q5_checkThe5[]" value="Asthma" required="" />
               <label id="label_input_5_0" for="input_5_0"> Asthma </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_5_1" name="q5_checkThe5[]" value="Cancer" required="" />
               <label id="label_input_5_1" for="input_5_1"> Cancer </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_5_2" name="q5_checkThe5[]" value="Cardiac disease" required="" />
               <label id="label_input_5_2" for="input_5_2"> Cardiac disease </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+             
               <input type="checkbox" class="form-checkbox validate[required]" id="input_5_3" name="q5_checkThe5[]" value="Diabetes" required="" />
               <label id="label_input_5_3" for="input_5_3"> Diabetes </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+             
               <input type="checkbox" class="form-checkbox validate[required]" id="input_5_4" name="q5_checkThe5[]" value="Hypertension" required="" />
               <label id="label_input_5_4" for="input_5_4"> Hypertension </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+             
               <input type="checkbox" class="form-checkbox validate[required]" id="input_5_5" name="q5_checkThe5[]" value="Psychiatric disorder" required="" />
               <label id="label_input_5_5" for="input_5_5"> Psychiatric disorder </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+             
               <input type="checkbox" class="form-checkbox validate[required]" id="input_5_6" name="q5_checkThe5[]" value="Epilepsy" required="" />
               <label id="label_input_5_6" for="input_5_6"> Epilepsy </label>
             </span><br>
           </div>
-        </div><hr>
+        </div>
+      </div>
+      <hr>
 
-      <!-- Checklist of symptoms -->
-        <label class="form-label form-label-top" id="label_6" for="input_6_0">
+      <!-- Checklist of symptoms group 3-->
+    <div class="checklist" id="question_group_3">
+      <label class="checklist_label" id="checklist_label_2">
           Check the symptoms that you're currently experiencing:
-          <span class="form-required">
-            *
-          </span>
         </label>
-        <div id="cid_6" class="form-input-wide jf-required">
+        <div class="checklist_section">
           <div class="form-single-column" data-component="checkbox">
-            <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+            <span class="form-checkbox" style="clear:left;">
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_0" name="q6_checkThe6[]" value="Chest pain" required="" />
               <label id="label_input_6_0" for="input_6_0"> Chest pain </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_1" name="q6_checkThe6[]" value="Respiratory" required="" />
               <label id="label_input_6_1" for="input_6_1"> Respiratory </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_2" name="q6_checkThe6[]" value="Cardiac disease" required="" />
               <label id="label_input_6_2" for="input_6_2"> Cardiac disease </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_3" name="q6_checkThe6[]" value="Cardiovascular" required="" />
               <label id="label_input_6_3" for="input_6_3"> Cardiovascular </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+             
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_4" name="q6_checkThe6[]" value="Hematological" required="" />
               <label id="label_input_6_4" for="input_6_4"> Hematological </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_5" name="q6_checkThe6[]" value="Lymphatic" required="" />
               <label id="label_input_6_5" for="input_6_5"> Lymphatic </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_6" name="q6_checkThe6[]" value="Neurological" required="" />
               <label id="label_input_6_6" for="input_6_6"> Neurological </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_7" name="q6_checkThe6[]" value="Psychiatric" required="" />
               <label id="label_input_6_7" for="input_6_7"> Psychiatric </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_8" name="q6_checkThe6[]" value="Gastrointestinal" required="" />
               <label id="label_input_6_8" for="input_6_8"> Gastrointestinal </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_9" name="q6_checkThe6[]" value="Genitourinary" required="" />
               <label id="label_input_6_9" for="input_6_9"> Genitourinary </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_10" name="q6_checkThe6[]" value="Weight gain" required="" />
               <label id="label_input_6_10" for="input_6_10"> Weight gain </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_11" name="q6_checkThe6[]" value="Weight loss" required="" />
               <label id="label_input_6_11" for="input_6_11"> Weight loss </label>
             </span><br>
             <span class="form-checkbox-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+            
               <input type="checkbox" class="form-checkbox validate[required]" id="input_6_12" name="q6_checkThe6[]" value="Musculoskeletal" required="" />
               <label id="label_input_6_12" for="input_6_12"> Musculoskeletal </label>
             </span><br>
           </div>
-        </div><hr>
+        </div>
+      </div>
+      <hr>
 
-      <!-- Medication confirmation -->
-        <label class="form-label form-label-top" id="label_7" for="input_7">
+      <!-- Medication confirmation GROUP 4-->
+      <div class="confirm" id="question_group_4">
+
+        <label class="confirmation-label" id="label_1" for="input_1">
           Are you currently taking any medication?
-          <span class="form-required">
-            *
-          </span>
         </label>
-        <div id="cid_7" class="form-input-wide jf-required">
-          <div class="form-single-column" data-component="radio">
+        <div class="checklist_section">
             <span class="form-radio-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
-              <input type="radio" class="form-radio validate[required]" id="input_7_0" name="q7_areYou" value="Yes" required="" />
-              <label id="label_input_7_0" for="input_7_0"> Yes </label>
+              
+              <input type="radio" class="form-radio validate[required]" id="input_3_0" name="medications_areYou" value="Yes" required="" />
+              <label id="label_input_3_0" for="input_3_0"> Yes </label>
             </span>
             <span class="form-radio-item" style="clear:left;">
               <span class="dragger-item">
               </span>
-              <input type="radio" class="form-radio validate[required]" id="input_7_1" name="q7_areYou" value="No" required="" />
-              <label id="label_input_7_1" for="input_7_1"> No </label>
+              <input type="radio" class="form-radio validate[required]" id="input_3_1" name="medication_areYou" value="No" required="" />
+              <label id="label_input_3_1" for="input_3_1"> No </label>
             </span>
-          </div>
-        </div><hr>
+       </div>
+      </div> <hr>
 
       <!-- Allergy inquiry -->
-        <label class="form-label form-label-top" id="label_8" for="input_8">
+          <div class="confirm" id="question_group_4">
+        <label class="confirmation-label" id="label_2" for="input_2">
           Do you have any medication allergies?
           <span class="form-required">
             *
@@ -260,10 +232,13 @@
               <label id="label_input_8_2" for="input_8_2"> Not Sure </label>
             </span>
           </div>
-        </div><hr>
+        </div>
+      </div><hr>
 
-      <!-- Gender -->
-        <label class="form-label form-label-top" id="label_9" for="input_9">
+      <!-- Gender GROUP 5 -->
+      <div class="confirm" id="question_group_5">
+
+        <label class="-label" id="label_3" for="input_3">
           What is your Gender?
           <span class="form-required">
             *
@@ -287,11 +262,9 @@
         </div><hr>
 
       <!-- tobacco use -->
-        <label class="form-label form-label-top" id="label_10" for="input_10">
+      <div class="dropdown" id="question_group_6">
+        <label class="dropdown-label">
           Do you use or do you have history of using tobacco?
-          <span class="form-required">
-            *
-          </span>
         </label>
         <div id="cid_10" class="form-input-wide jf-required">
           <select class="form-dropdown validate[required]" id="input_10" name="q10_doYou10" style="width:70px;" data-component="dropdown" required="">
@@ -299,10 +272,13 @@
             <option value="Yes"> Yes </option>
             <option selected="" value="No"> No </option>
           </select>
-        </div><hr>
+        </div>
+      </div><hr>
 
-      <!-- drug use -->
-        <label class="form-label form-label-top" id="label_11" for="input_11">
+      <!-- drug use GROUP 7 -->
+         <div class="dropdown" id="question_group_7">
+ 
+        <label class="dropdown-label">
           Do you use or do you have history of using illegal drugs?
           <span class="form-required">
             *
@@ -317,51 +293,42 @@
         </div><hr>
 
       <!-- alcohol use -->
-        <label class="form-label form-label-top" id="label_12" for="input_12">
+        <label class="confirmation-label">
           How often do you consume alcohol?
-          <span class="form-required">
-            *
-          </span>
         </label>
-        <div id="cid_12" class="form-input-wide jf-required">
-          <div class="form-multiple-column" data-columncount="3" data-component="radio">
+      <div class="confirm" id="question_group_3">
+ 
+        <div id="confirmation_form_inline">
             <span class="form-radio-item">
-              <span class="dragger-item">
-              </span>
               <input type="radio" class="form-radio validate[required]" id="input_12_0" name="q12_howOften" value="Daily" required="" />
               <label id="label_input_12_0" for="input_12_0"> Daily </label>
             </span>
             <span class="form-radio-item">
-              <span class="dragger-item">
-              </span>
               <input type="radio" class="form-radio validate[required]" id="input_12_1" name="q12_howOften" value="Weekly" required="" />
               <label id="label_input_12_1" for="input_12_1"> Weekly </label>
             </span>
             <span class="form-radio-item">
-              <span class="dragger-item">
-              </span>
+              
               <input type="radio" class="form-radio validate[required]" id="input_12_2" name="q12_howOften" value="Monthly" required="" />
               <label id="label_input_12_2" for="input_12_2"> Monthly </label>
             </span>
             <span class="form-radio-item" style="clear:left;">
-              <span class="dragger-item">
-              </span>
+              
               <input type="radio" class="form-radio validate[required]" id="input_12_3" name="q12_howOften" value="Occasionally" required="" />
               <label id="label_input_12_3" for="input_12_3"> Occasionally </label>
             </span>
             <span class="form-radio-item">
-              <span class="dragger-item">
-              </span>
+             
               <input type="radio" class="form-radio validate[required]" id="input_12_4" name="q12_howOften" value="Never" required="" />
               <label id="label_input_12_4" for="input_12_4"> Never </label>
             </span>
-          </div>
         </div>
+      </div>
 
-    <!-- button -->
+    <!-- submit button -->
         <div id="cid_2" class="form-input-wide">
           <div style="margin-left:156px;" class="form-buttons-wrapper">
-            <button id="input_2" type="submit" class="form-submit-button" data-component="button">
+            <button type="submit" class="form-submit-button" data-component="button">
               Submit
             </button>
           </div>
