@@ -1,17 +1,18 @@
-$("#add-btn").on("click", function(event) {
+  $("#add-btn").on("click", function(event) {
   event.preventDefault();
 
   var newUser = {
     name: $("#name").val().trim(),
     email: $("#email").val().trim(),
     username: $("#username").val().trim(),
-    password: $("#password").val().trim(),
-    designation: $("#designation").val(),
+    password: $("#password").val().trim()
   };
 
   $.post("/api/user/new", newUser)
     .done(function(data) {
+      token.set(data);
 
+      username.set(newUser.username)
       window.location = "/";
     });
 
@@ -19,6 +20,5 @@ $("#add-btn").on("click", function(event) {
   $("#email").val("");
   $("#username").val("");
   $("#password").val("");
-  $("#designation").val("Select.... ");
 
   });

@@ -9,16 +9,29 @@ module.exports = function(app) {
       name: req.body.name,
       email: req.body.email,
       username: req.body.username,
-      password: auth.encrypt(req.body.password),
-      designation: req.body.designation
+      password: auth.encrypt(req.body.password)
     })
     .then(function(dbDoctor) {
-      res.json(true);
+     // res.json(true);
+     if (dbDoctor){
+
+     
+      var token = auth.makeid();
+        db.Users.update({
+        token: token}, 
+        {where: {
+          id: dbDoctor.id
+        }
+      }).then(function(){
+        res.json(token)
+      })
+    } else {
+      res.json(false)
+    }
     }).catch(function(error){
       
     });
   });
-
 
   app.post("/api/user/login", function(req, res) {
     db.Users.findOne({
@@ -45,17 +58,6 @@ module.exports = function(app) {
     }).catch(function(error){
       
     })
-  });
-
-  app.post("/api/formOne", function(req, res) {
-    console.log(req.body);
-    db.FormOne.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName
-    })
-    .then(function(dbFormOne) {
-      res.json(dbFormOne);
-    });
   });
 
 };

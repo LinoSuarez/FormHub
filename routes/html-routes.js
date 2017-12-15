@@ -61,7 +61,6 @@ module.exports = function(app) {
         })
           
       })
-
       app.get("/logout", function(req, res){
         var token = req.cookies.token
         var username = req.cookies.username
@@ -79,5 +78,8 @@ module.exports = function(app) {
         })
           
       })
+    //   app.get("/registrationv2", function(req, res){
+    //     res.render("registrationv2")
+    //   })
 
 };
