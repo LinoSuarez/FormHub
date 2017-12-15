@@ -5,6 +5,8 @@ var auth = require("../auth/auth.js");
 module.exports = function(app) {
 
   app.post("/api/user/new", function(req, res) {
+    console.log(req.body)
+    console.log(req.body.email.length)
     db.Users.create({
       name: req.body.name,
       email: req.body.email,
@@ -13,7 +15,22 @@ module.exports = function(app) {
       designation: req.body.designation
     })
     .then(function(dbDoctor) {
-      res.json(true);
+     // res.json(true);
+     if (dbDoctor){
+
+     
+      var token = auth.makeid();
+        db.Users.update({
+        token: token}, 
+        {where: {
+          id: dbDoctor.id
+        }
+      }).then(function(){
+        res.json(token)
+      })
+    } else {
+      res.json(false)
+    }
     }).catch(function(error){
       
     });
