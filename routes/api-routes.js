@@ -9,7 +9,8 @@ module.exports = function(app) {
       name: req.body.name,
       email: req.body.email,
       username: req.body.username,
-      password: auth.encrypt(req.body.password)
+      password: auth.encrypt(req.body.password),
+      designation: req.body.designation
     })
     .then(function(dbDoctor) {
       res.json(true);
