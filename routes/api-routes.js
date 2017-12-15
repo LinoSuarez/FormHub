@@ -3,6 +3,29 @@ var db = require("../models");
 var auth = require("../auth/auth.js");
 
 module.exports = function(app) {
+// app.post("/api/form/registration", function(req, res){
+//   db.Patform.create({
+//     FirstName: req.body.FirstName,
+//     MiddleName: req.body.MiddleName,
+//     LastName: req.body.LastName,
+//     emPhoneNum: req.body.emPhoneNum
+//   }).then(function(Patform){
+//     res.json(true);
+//   }).catch(function(error){
+
+//   });
+
+// });
+  app.post("/api/form/registration", function(req, res){
+    //console.log((req.body));
+    db.Patform.create({
+      FirstName: JSON.stringify(req.body)
+    })
+    .then (function(){
+      res.end();
+    });
+
+  });
 
   app.post("/api/user/new", function(req, res) {
     db.Users.create({

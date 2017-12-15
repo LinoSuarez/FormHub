@@ -6,7 +6,7 @@ $("#add-btn").on("click", function(event) {
     email: $("#email").val().trim(),
     username: $("#username").val().trim(),
     password: $("#password").val().trim(),
-    designation: $("#designation").val(),
+    designation: $("#designation").val()
   };
 
   $.post("/api/user/new", newUser)
