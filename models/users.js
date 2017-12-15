@@ -10,15 +10,27 @@ module.exports = function(sequelize, DataTypes) {
       email: {
         type: DataTypes.TEXT,
         allowNull: false,
-        len: [1]
+        validate: {
+          len: [1]
+        }
       },
       username: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1]
+        }
       },
       password: {
           type: DataTypes.STRING,
           allowNull: false,
-          len: [1]
+          validate: {
+            len: [1]
+          }
+      },
+      designation: {
+        type: DataTypes.STRING,
+        allowNull: false
       },
       token: {
         type: DataTypes.STRING,

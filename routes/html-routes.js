@@ -51,9 +51,14 @@ module.exports = function(app) {
                 token: token
             }
         }).then(function(matched){
-            
+            console.log(matched)
             if (matched) {
-                res.render("index", {username: username})
+                if (matched.designation === "Doctor"){
+                    res.render("doctor", {name: matched.name, designation: matched.designation})
+                } else if (matched.designation === "Patient"){
+                    res.render("patient", matched)
+                }
+                
             } else {
                 res.render("login")
             }
@@ -78,8 +83,12 @@ module.exports = function(app) {
         })
           
       })
-    //   app.get("/registrationv2", function(req, res){
-    //     res.render("registrationv2")
+    //   app.get("/doctor", function(req, res){
+    //       res.render("doctor")
+    //   });
+
+    //   app.get("/patient", function(req, res){
+    //       res.render("patient")
     //   })
 
 };
