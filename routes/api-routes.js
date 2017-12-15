@@ -45,5 +45,16 @@ module.exports = function(app) {
     })
   });
 
+  app.post("/api/formOne", function(req, res) {
+    console.log(req.body);
+    db.FormOne.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName
+    })
+    .then(function(dbFormOne) {
+      res.json(dbFormOne);
+    });
+  });
+
 };
 
