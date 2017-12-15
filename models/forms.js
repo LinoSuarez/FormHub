@@ -1,9 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-    var Form = sequelize.define("form", {
+    var Form = sequelize.define("Form", {
       value: {
-// We cannot store objects in the database. But we can
-// stringify what we collect from the user and parse
-// back out when we return it. 
         type: DataTypes.STRING,
         allowNull: false,
         validate: {

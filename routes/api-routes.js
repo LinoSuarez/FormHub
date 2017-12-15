@@ -47,14 +47,13 @@ module.exports = function(app) {
     })
   });
 
-  app.post("/api/formOne", function(req, res) {
-    console.log(req.body);
-    db.FormOne.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName
+  app.post("/api/new/form", function(req, res) {
+    console.log(JSON.stringify(req.body));
+    db.Form.create({
+      value: JSON.stringify(req.body)
     })
-    .then(function(dbFormOne) {
-      res.json(dbFormOne);
+    .then(function() {
+      res.end();
     });
   });
 

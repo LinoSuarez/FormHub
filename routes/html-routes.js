@@ -80,4 +80,14 @@ module.exports = function(app) {
           
       })
 
+    app.get("/new_patient", function(req,res){
+         
+         res.render("form_ptregistration"); 
+      })
+
+    app.get("/medical_history", function(req,res){
+        res.render("form_history");
+       
+    })
+
 };

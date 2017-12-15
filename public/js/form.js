@@ -1,18 +1,31 @@
- $("submit").on("click", function(event) {
-  event.preventDefault();
+$(document).ready(function(){
 
-  var newFormOne = {
-    firstName: $("#nameFirst").val().trim(),
-    lastName: $("#nameLast").val().trim()
+
+ $("#submitForm").on("click", function(event) {
+    event.preventDefault();
+  
+  var value = {
+    FirstName: $("#FirstName").val().trim(),
+    MiddleName: $("#MiddleName").val().trim(),
+    LastName: $("#LastName").val().trim(),
+    emPhoneNum: $("#emPhoneNum").val().trim(),
+    email: $("#email").val().trim()
+
   };
-
-  $.post("/api/formOne", newDr)
+  console.log(value);
+  
+  $.post("/api/new/form", value)
     .done(function(data) {
 
       console.log(data);
     });
 
-  $("#nameFirst").val("");
-  $("#nameLast").val("");
+    $("#FirstName").val().trim(),
+    $("#MiddleName").val().trim(),
+    $("#LastName").val().trim(),
+    $("#emPhoneNum").val().trim(),
+    $("#email").val().trim()
   
   });
+
+ })
