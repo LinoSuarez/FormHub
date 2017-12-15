@@ -1,4 +1,4 @@
-$("#add-btn").on("click", function(event) {
+  $("#add-btn").on("click", function(event) {
   event.preventDefault();
 
   var newUser = {
@@ -6,11 +6,7 @@ $("#add-btn").on("click", function(event) {
     email: $("#email").val().trim(),
     username: $("#username").val().trim(),
     password: $("#password").val().trim(),
-<<<<<<< HEAD
-    designation: $("#designation").val(),
-=======
     designation: $("#designation").val()
->>>>>>> doctor-front2
   };
 
   $.post("/api/user/new", newUser)
@@ -25,10 +21,6 @@ $("#add-btn").on("click", function(event) {
   $("#email").val("");
   $("#username").val("");
   $("#password").val("");
-<<<<<<< HEAD
-  $("#designation").val("Select.... ");
-=======
   $("#designation").val("");
->>>>>>> doctor-front2
 
   });

@@ -36,7 +36,6 @@ module.exports = function(app) {
     });
   });
 
-
   app.post("/api/user/login", function(req, res) {
     db.Users.findOne({
       where: {
@@ -62,16 +61,6 @@ module.exports = function(app) {
     }).catch(function(error){
       
     })
-  });
-
-  app.post("/api/new/form", function(req, res) {
-    console.log(JSON.stringify(req.body));
-    db.Form.create({
-      value: JSON.stringify(req.body)
-    })
-    .then(function() {
-      res.end();
-    });
   });
 
 };

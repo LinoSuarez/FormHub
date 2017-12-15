@@ -66,7 +66,6 @@ module.exports = function(app) {
         })
           
       })
-
       app.get("/logout", function(req, res){
         var token = req.cookies.token
         var username = req.cookies.username
@@ -91,15 +90,5 @@ module.exports = function(app) {
     //   app.get("/patient", function(req, res){
     //       res.render("patient")
     //   })
-
-    app.get("/new_patient", function(req,res){
-         
-         res.render("form_ptregistration"); 
-      })
-
-    app.get("/medical_history", function(req,res){
-        res.render("form_history");
-       
-    })
 
 };
