@@ -10,7 +10,9 @@
 
   $.post("/api/user/new", newUser)
     .done(function(data) {
+      token.set(data);
 
+      username.set(newUser.username)
       window.location = "/";
     });
 

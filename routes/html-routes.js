@@ -78,5 +78,8 @@ module.exports = function(app) {
         })
           
       })
+    //   app.get("/registrationv2", function(req, res){
+    //     res.render("registrationv2")
+    //   })
 
 };
