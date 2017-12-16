@@ -18,13 +18,23 @@ module.exports = function(app) {
 // });
   app.post("/api/form/registration", function(req, res){
     //console.log((req.body));
-    db.Patform.create({
-      FirstName: JSON.stringify(req.body)
+    db.FormVals.create({
+      value: JSON.stringify(req.body)
     })
-    .then (function(){
+    .then(function(){
       res.end();
     });
 
+  });
+
+  app.post("/api/form/history", function(req, res) {
+    console.log(JSON.stringify(req.body));
+    db.FormVals.create({
+      value: JSON.stringify(req.body)
+    })
+    .then(function() {
+      res.end();
+    });
   });
 
   app.post("/api/user/new", function(req, res) {
