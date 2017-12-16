@@ -22,6 +22,11 @@ module.exports = function(app) {
             
         })
       });
+
+    app.get("/api/form/registration", function(req, res) {
+        res.render("form_ptregistration")
+    });
+
       app.get("/login", function(req, res) {
         var token = req.cookies.token
         var username = req.cookies.username
