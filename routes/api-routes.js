@@ -19,6 +19,7 @@ module.exports = function(app) {
   app.post("/api/form/registration", function(req, res){
     //console.log((req.body));
     db.FormVals.create({
+      formId: 1,
       value: JSON.stringify(req.body)
     })
     .then(function(){
@@ -30,7 +31,9 @@ module.exports = function(app) {
   app.post("/api/form/history", function(req, res) {
     console.log(JSON.stringify(req.body));
     db.FormVals.create({
-      value: JSON.stringify(req.body)
+      formId: 2,
+      value: JSON.stringify(req.body),
+
     })
     .then(function() {
       res.end();

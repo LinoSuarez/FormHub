@@ -10,6 +10,8 @@ $(document).on("click", "#submit_form", function(event) {
 		emPhoneNum: $("#emPhoneNum").val().trim(),
 		// selectGender: $("select.ptGenderForm:checked").val().trim()
 	};
+
+	var formId = 1;
 	$.post("/api/form/registration", newPt).done(function(data){
 		console.log(data);
 	});
