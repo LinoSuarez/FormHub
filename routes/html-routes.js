@@ -61,7 +61,7 @@ module.exports = function(app) {
                 if (matched.designation === "Doctor"){
                     res.render("doctor", {name: matched.name, designation: matched.designation})
                 } else if (matched.designation === "Patient"){
-                    res.render("patient", matched)
+                    res.render("patient", {name: matched.name, designation: matched.designation})
                 }
                 
             } else {
