@@ -59,9 +59,45 @@ module.exports = function(app) {
             console.log(matched)
             if (matched) {
                 if (matched.designation === "Doctor"){
-                    res.render("doctor", {name: matched.name, designation: matched.designation})
+                    db.FormTemplates.findAll({
+
+                    }).then(function(response){
+                        formRoutes = response.map(function(element){
+                            return {name: element.formName, id: element.id}
+                        })
+
+                        console.log(formRoutes)
+                        res.render("doctor", {name: matched.name, designation: matched.designation, forms: formRoutes})
+                    })
+                    
+
+
                 } else if (matched.designation === "Patient"){
-                    res.render("patient", {name: matched.name, designation: matched.designation})
+
+                    var forms = [];
+                    var ids = matched.formTofill.split(",");
+                    var routes = [1];
+             
+                        db.FormTemplates.findAll({
+                            where: {
+                                id: ids
+                            }
+                        }).then(function(result){
+                            
+                            if (result){
+                                // console.log(result[1].formRoute)
+                                var formRoutes = result.map(function(val){
+                                    return {route: val.formRoute, name: val.formName}
+                                })
+                                // console.log(formRoutes)
+                                res.render("patient", {name: matched.name, designation: matched.designation, forms: formRoutes})
+                                // routes.push(result.formRoute)
+                            }
+                            
+                        })
+                    
+                    // console.log(routes, "a")
+                    
                 }
                 
             } else {
@@ -106,7 +142,7 @@ module.exports = function(app) {
        
     // })
 
-    app.get("/:forms?", function(req, res) {
+    app.get("/forms/:forms?", function(req, res) {
 
     // If the user provides a specific character in the URL...
     if (req.params.forms) {
@@ -118,7 +154,12 @@ module.exports = function(app) {
           formRoute: req.params.forms
         }
       }).then(function(result) {
-          res.render(result.formRoute);
+          if (result){
+            res.render(result.formRoute);
+          } else {
+              res.json("Sorry dude.")
+          }
+            
       });
     }
 

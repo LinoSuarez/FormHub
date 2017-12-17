@@ -72,6 +72,7 @@ module.exports = function(app) {
     });
   });
 
+
   app.post("/api/user/login", function(req, res) {
     db.Users.findOne({
       where: {
@@ -98,6 +99,15 @@ module.exports = function(app) {
       
     })
   });
+  app.post("/api/patient/forms", function(req, res) {
 
+
+    db.Users.update({
+      formTofill: req.body.arrayForms},
+      {where: {
+        email: req.body.email
+      }
+    })
+  })
 };
 

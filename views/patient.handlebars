@@ -1,10 +1,10 @@
-{{!-- <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
+
+<!DOCTYPE html>
 <html lang="en">
-<!--<![endif]-->
 <head>
-	<meta charset="utf-8" />
+  <meta charset="UTF-8">
+
+  <script src="/js/auth.js"></script>
 	<title>FormHub | Dashboard</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
@@ -23,9 +23,8 @@
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="assets/plugins/pace/pace.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
 </head>
-<body> --}}
+<body>
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
@@ -79,7 +78,7 @@
 						<div class="image">
 							<a href="javascript:;"><img src="assets/img/health.png" alt="" /></a>
 						</div>
-						<div class="info" id="displayName">
+						<div class="info">
 							{{name}}
 							<small>{{designation}}</small>
 						</div>
@@ -100,10 +99,10 @@
 						<a href="javascript:;">
 						    <b class="caret pull-right"></b>
 						    <i class="fa fa-list-alt"></i>
-						    <span>Patient Forms</span>
+						    <span>Patient Form</span>
 					    </a>
 						<ul class="sub-menu">
-						    <li><a href="index.html">Forms to Fill Out</a></li>
+						    <li><a href="index.html">Request</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -120,16 +119,15 @@
 
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Blank Page <small>header small text goes here...</small></h1>
+			{{!-- <h1 class="page-header">Forms<small>Select the forms you would like to send to your patient below.</small></h1> --}}
 			<!-- end page-header -->
 			
-			<div class="row">
-			    <div class="col-md-12">
-
-                    
-			    </div>
+			<div class="form-group input-lg">
+				 <ul>{{#each forms}}
+					<li><a href="/forms/{{route}}">{{name}} </a></li>
+				{{/each}}</ul>  
+	
 			</div>
-		</div>
 		<!-- end #content -->
 		
        
@@ -162,5 +160,8 @@
 			App.init();
 		});
 	</script>
+	<script src="js/doctor.js"></script>
 {{!-- </body>
 </html> --}}
+  </body>
+  </html>

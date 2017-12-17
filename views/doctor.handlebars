@@ -125,31 +125,29 @@
 			<div class="form-group input-lg">
 				                    <div class="form-group">
                                         <label for="exampleInputEmail1">Patient Email Address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" />
+                                        <input type="email" class="form-control" id="patientEmail" placeholder="Enter email" />
                                     <br><br>
 									</div>
                         
                        <div class="form-group form-group-lg">
                                     <label class="col-md-3 control-label large">Select Patient Forms</label>
-                                    <div class="col-md-9">
-                                        <div class="checkbox">
+                                    <div class="col-md-9" id="checkboxgroup">
+									{{#each forms}}
+										<div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="" />
-												Form One
+                                                <input form-id="{{id}}" type="checkbox" value="" />
+												{{name}}
                                             </label>
                                         </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="" />
-                                                Form Two
-                                            </label>
-                                        </div>
+									{{/each}}
+                                        
                                     </div>
+
                                 </div>
 							 <div class="form-group">
                                     
                                     <div class="col-md-9">
-                                        <button type="submit" class="btn btn-sm btn-success">Submit</button>
+                                        <button type="submit" id="formSubmit" class="btn btn-sm btn-success">Submit</button>
                                     </div>
                                 </div>
 			</div>
@@ -185,6 +183,7 @@
 			App.init();
 		});
 	</script>
+	<script src="js/doctor.js"></script>
 {{!-- </body>
 </html> --}}
   </body>
