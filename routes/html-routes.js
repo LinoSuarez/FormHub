@@ -74,27 +74,32 @@ module.exports = function(app) {
 
                 } else if (matched.designation === "Patient"){
 
-                    var forms = [];
-                    var ids = matched.formTofill.split(",");
-                    var routes = [1];
-             
-                        db.FormTemplates.findAll({
-                            where: {
-                                id: ids
-                            }
-                        }).then(function(result){
-                            
-                            if (result){
-                                // console.log(result[1].formRoute)
-                                var formRoutes = result.map(function(val){
-                                    return {route: val.formRoute, name: val.formName}
-                                })
-                                // console.log(formRoutes)
-                                res.render("patient", {name: matched.name, designation: matched.designation, forms: formRoutes})
-                                // routes.push(result.formRoute)
-                            }
-                            
-                        })
+                    if (matched.formTofill) {
+                        var forms = [];
+                        var ids = matched.formTofill.split(",");
+                        var routes = [1];
+                 
+                            db.FormTemplates.findAll({
+                                where: {
+                                    id: ids
+                                }
+                            }).then(function(result){
+                                
+                                if (result){
+                                    // console.log(result[1].formRoute)
+                                    var formRoutes = result.map(function(val){
+                                        return {route: val.formRoute, name: val.formName}
+                                    })
+                                    // console.log(formRoutes)
+                                    res.render("patient", {name: matched.name, designation: matched.designation, forms: formRoutes})
+                                    // routes.push(result.formRoute)
+                                }
+                                
+                            })
+                    } else {
+                        res.render("patient", {name: matched.name, designation: matched.designation, forms: null})
+                    }
+
                     
                     // console.log(routes, "a")
                     
