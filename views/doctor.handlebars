@@ -1,30 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-
-  <script src="/js/auth.js"></script>
-	<title>FormHub | Dashboard</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-	
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link href="assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
-	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="assets/css/animate.min.css" rel="stylesheet" />
-	<link href="assets/css/style.min.css" rel="stylesheet" />
-	<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="assets/css/theme/default.css" rel="stylesheet" id="theme" />
-	<!-- ================== END BASE CSS STYLE ================== -->
-	
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="assets/plugins/pace/pace.min.js"></script>
-</head>
-<body>
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
@@ -50,7 +24,7 @@
 				<ul class="nav navbar-nav navbar-right">
 
 					
-<li class="dropdown navbar-user">
+					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 							<img src="assets/img/health.png" alt=""> 
 							<span class="hidden-xs">{{name}}</span> <b class="caret"></b>
@@ -69,7 +43,7 @@
 		<!-- end #header -->
 		
 		<!-- begin #sidebar -->
-		<div id="sidebar" class="sidebar">
+		<div id="sidebar" class="sidebar sidebar-transparent">
 			<!-- begin sidebar scrollbar -->
 			<div data-scrollbar="true" data-height="100%">
 				<!-- begin sidebar user -->
@@ -121,36 +95,51 @@
 			<!-- begin page-header -->
 			{{!-- <h1 class="page-header">Forms<small>Select the forms you would like to send to your patient below.</small></h1> --}}
 			<!-- end page-header -->
-			
-			<div class="form-group input-lg">
-				                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Patient Email Address</label>
-                                        <input type="email" class="form-control" id="patientEmail" placeholder="Enter email" />
-                                    <br><br>
-									</div>
-                        
-                       <div class="form-group form-group-lg">
-                                    <label class="col-md-3 control-label large">Select Patient Forms</label>
-                                    <div class="col-md-9" id="checkboxgroup">
-									{{#each forms}}
-										<div class="checkbox">
-                                            <label>
-                                                <input form-id="{{id}}" type="checkbox" value="" />
-												{{name}}
-                                            </label>
-                                        </div>
-									{{/each}}
-                                        
-                                    </div>
-
-                                </div>
-							 <div class="form-group">
-                                    
+			<div class="row">
+                <!-- begin col-6 -->
+			    <div class="col-md-6">
+			        <!-- begin panel -->
+                    <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h4 class="panel-title">Input Types</h4>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Patient E-mail Adress</label>
                                     <div class="col-md-9">
-                                        <button type="submit" id="formSubmit" class="btn btn-sm btn-success">Submit</button>
+                                        <input type="text" class="form-control" id="patientEmail" placeholder="example@email.com" />
                                     </div>
                                 </div>
-			</div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Select Patient Forms</label>
+                                    <div class="col-md-9">
+										{{#each forms}}
+											<div class="checkbox">
+												<label>
+													<input form-id="{{id}}" type="checkbox" value="" />
+													{{name}}
+												</label>
+											</div>
+										{{/each}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Submit</label>
+                                    <div class="col-md-9">
+                                        <button type="submit" id="formSubmit" class="btn btn-sm btn-success">Request</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+				</div>
 		<!-- end #content -->
 		
        
@@ -184,7 +173,4 @@
 		});
 	</script>
 	<script src="js/doctor.js"></script>
-{{!-- </body>
-</html> --}}
-  </body>
-  </html>
+

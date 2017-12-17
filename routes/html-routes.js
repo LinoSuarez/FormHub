@@ -56,7 +56,7 @@ module.exports = function(app) {
                 token: token
             }
         }).then(function(matched){
-            console.log(matched)
+            // console.log(matched)
             if (matched) {
                 if (matched.designation === "Doctor"){
                     db.FormTemplates.findAll({
@@ -66,7 +66,7 @@ module.exports = function(app) {
                             return {name: element.formName, id: element.id}
                         })
 
-                        console.log(formRoutes)
+                        // console.log(formRoutes)
                         res.render("doctor", {name: matched.name, designation: matched.designation, forms: formRoutes})
                     })
                     
