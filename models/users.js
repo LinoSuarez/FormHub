@@ -35,6 +35,10 @@ module.exports = function(sequelize, DataTypes) {
       token: {
         type: DataTypes.STRING,
         allowNull: true
+      },
+      formTofill: {
+        type: DataTypes.STRING,
+        allowNull: true
       }
     });
     return Users;
