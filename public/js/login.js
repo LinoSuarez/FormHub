@@ -9,8 +9,10 @@ $("#add-btn").on("click", function(event) {
     $.post("/api/user/login", user)
       .done(function(data) {
         // console.log("hi")
-        token.set(data);
+        token.set(data.token);
+        id.set(data.id)
         username.set(user.username)
+        
         location.reload();
       });
   

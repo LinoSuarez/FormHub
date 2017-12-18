@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
     var FormVals = sequelize.define("FormVals", {
-      formId: {
-        type:DataTypes.INTEGER,
+      formRoute: {
+        type:DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1,5]
+          len: [1]
         }
       },
       value: {
@@ -13,7 +13,17 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
           len: [1]
         }
+      },
+      userID: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          len: [1]
+        }
       }
+    },
+    {
+      timestamps: false
     });
 
     return FormVals;

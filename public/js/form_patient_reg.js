@@ -4,14 +4,17 @@ $(document).on("click", "#submit_form", function(event) {
 	event.preventDefault();
 	// console.log("are u working?");
 	var newPt = {
-		FirstName : $("#FirstName").val().trim(),
-		MiddleName : $("#MiddleName").val().trim(),
-		LastName: $("#LastName").val().trim(),
-		emPhoneNum: $("#emPhoneNum").val().trim(),
+		patient: {
+			FirstName : $("#FirstName").val().trim(),
+			MiddleName : $("#MiddleName").val().trim(),
+			LastName: $("#LastName").val().trim(),
+			emPhoneNum: $("#emPhoneNum").val().trim()
+		}, 
+		formRoute: getLastURLVal()
+	}
 		// selectGender: $("select.ptGenderForm:checked").val().trim()
-	};
+	
 
-	var formId = 1;
 	$.post("/api/form/registration", newPt).done(function(data){
 		console.log(data);
 	});
@@ -19,4 +22,12 @@ $(document).on("click", "#submit_form", function(event) {
 	$("#MiddleName").val("");
 	$("#LastName").val("");
 	$("#emPhoneNum").val("")
+
+
+	function getLastURLVal(){
+		var url = location.href;
+		url = url.split("/")
+		return url.pop();
+	}
 });
+

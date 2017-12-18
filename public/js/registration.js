@@ -11,8 +11,8 @@
 
   $.post("/api/user/new", newUser)
     .done(function(data) {
-      token.set(data);
-
+      token.set(data.token);
+      id.set(data.id)
       username.set(newUser.username)
       window.location = "/";
     });

@@ -17,10 +17,13 @@ module.exports = function(app) {
 
 // });
   app.post("/api/form/registration", function(req, res){
+    // console.log(req.cookies.id)
     //console.log((req.body));
+    console.log(req.body)
     db.FormVals.create({
-      formId: 1,
-      value: JSON.stringify(req.body)
+      formRoute: req.body.formRoute,
+      value: JSON.stringify(req.body.patient),
+      userID: req.cookies.id
     })
     .then(function(){
       res.end();
@@ -62,7 +65,7 @@ module.exports = function(app) {
           id: dbDoctor.id
         }
       }).then(function(){
-        res.json(token)
+        res.json({token: token, id: dbDoctor.id})
       })
     } else {
       res.json(false)
@@ -89,7 +92,7 @@ module.exports = function(app) {
             id: answer.id
           }
         }).then(function(){
-          res.json(token)
+          res.json({token: token, id: answer.id})
         })
       } else {
         res.json(false);
