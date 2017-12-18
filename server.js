@@ -18,6 +18,15 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+var myLogger = function (req, res, next) {
+  // var token = req.cookies.token
+  // var username = req.cookies.username
+  // console.log(token, username)
+  next()
+}
+
+app.use(myLogger)
+
 var db = require("./models");
 
 /*

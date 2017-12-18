@@ -29,7 +29,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/form/history", function(req, res) {
-    console.log(JSON.stringify(req.body));
+    // console.log(JSON.stringify(req.body));
     db.FormVals.create({
       formId: 2,
       value: JSON.stringify(req.body),
@@ -41,8 +41,8 @@ module.exports = function(app) {
   });
 
   app.post("/api/user/new", function(req, res) {
-    console.log(req.body)
-    console.log(req.body.email.length)
+    // console.log(req.body)
+    // console.log(req.body.email.length)
     db.Users.create({
       name: req.body.name,
       email: req.body.email,
@@ -106,6 +106,26 @@ module.exports = function(app) {
       {where: {
         email: req.body.email
       }
+    }).then(function(response){
+      if (response){
+        res.json(true)
+      } else {
+        res.json(false)
+      }
+    })
+  })
+
+  app.post("/api/doctos/client/autocomplete", function(req, res){
+    
+    db.Users.findAll({
+      where: {
+        designation: "Patient"
+      }
+    }).then(function(response){
+      var emails = response.map(function(data){
+        return data.email
+      })
+      res.json(emails)
     })
   })
 };
