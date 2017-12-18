@@ -21,3 +21,11 @@ module.exports = function(sequelize, DataTypes) {
 
     return FormTemplates;
   };
+
+  // If you need to add the formRoutes to properly test, simply run this
+  // in your db query:
+
+// INSERT INTO FormTemplates (formName, formRoute)
+// VALUES 
+// ("new_patient", "new_patient"),
+// ("medical_history", "medical_history");

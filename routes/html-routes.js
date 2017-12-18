@@ -129,52 +129,23 @@ module.exports = function(app) {
         })
           
       })
-    //   app.get("/doctor", function(req, res){
-    //       res.render("doctor")
-    //   });
 
-    //   app.get("/patient", function(req, res){
-    //       res.render("patient")
-    //   })
+    app.get("/form/:forms?", function(req, res) {
 
-    //  app.get("/new_patient", function(req,res){
-         
-    //      res.render("form_ptregistration"); 
-    //   })
-
-    // app.get("/medical_history", function(req,res){
-    //     res.render("form_history");
-       
-    // })
-
-    app.get("/forms/:forms?", function(req, res) {
-
-    // If the user provides a specific character in the URL...
     if (req.params.forms) {
 
-      // Then display the JSON for ONLY that character.
-      // (Note how we're using the ORM here to run our searches)
       db.FormTemplates.findOne({
         where: {
           formRoute: req.params.forms
         }
       }).then(function(result) {
-          if (result){
             res.render(result.formRoute);
-          } else {
-              res.json("Sorry dude.")
-          }
             
       });
     }
 
-    // Otherwise...
-    else if (!req.params.forms){
-      // Otherwise display the data for all of the characters.
-      // (Note how we're using Sequelize here to run our searches)
-      res.redirect("/");
-    }
-
-  });   
-
+    else  {
+        res.json("Sorry dude.")}
+    });   
+    
 };

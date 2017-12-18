@@ -101,7 +101,6 @@ module.exports = function(app) {
   });
   app.post("/api/patient/forms", function(req, res) {
 
-
     db.Users.update({
       formTofill: req.body.arrayForms},
       {where: {
