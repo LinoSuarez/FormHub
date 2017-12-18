@@ -1,6 +1,6 @@
 
 
-<form id="form_history" value="2">
+<form id="form_history" value="2" data-parsley-validate="">
 
 <div class = "container">
 	<div class = "containerHeader" > 
@@ -19,18 +19,18 @@
                 <div class="ptFullName">
                     <label class="fullNameLabel" for="FirstName">Full Name</label>
                     <div class="controls">
-                        <input style="width: 20%" id="FirstName" name="FirstName" placeholder="Firstname" type="text" value="" />
-                        <input style="width: 20%" id="MiddleName" name="MiddleName" placeholder="Middlename" type="text" value="" />
-                        <input style="width: 20%" id="LastName" name="LastName" placeholder="Lastname" type="text" value="" />
+                        <input style="width: 20%" id="FirstName" name="FirstName" placeholder="Firstname" type="text" value="" data-parsley-required="true" data-parsley-trigger="change" required=""/>
+                        <input style="width: 20%" id="MiddleName" name="MiddleName" placeholder="Middlename" type="text" value="" data-parsley-required="true" data-parsley-trigger="change" required=""/>
+                        <input style="width: 20%" id="LastName" name="LastName" placeholder="Lastname" type="text" value="" data-parsley-required="true" data-parsley-trigger="change" required=""/>
                     </div>
                 </div>
                 <br />
                 <div class="ptPhoneEmail">
                 	
-                	<input style="width: 20%" id="emPhoneNum" name="emPhone" placeholder="Phone Number" type="" value="" />
+                	<input style="width: 20%" id="emPhoneNum" name="emPhone" placeholder="Phone Number" type="" value="" data-parsley-required="true" data-parsley-trigger="change" required=""/>
                 	<label class="emPhoneNum" for="emPhoneNumber">Phone Number</label>
      
-                    <input class="input-xxlarge" id="email" name="email" placeholder="email" type="text" value="" />
+                    <input class="input-xxlarge" id="email" name="email" placeholder="email" type="text" value="" data-parsley-required="true" data-parsley-trigger="change" required=""/>
                     <label class="ptEmailLabel" for="Email">Email</label>
                    
          
@@ -176,7 +176,7 @@
 					</div>
 			</fieldset> -->
 		<!-- </div>  --><!--cont.6-->
-		<!-- <br />
+		 <br />
 		<div class = "containerAlcohol" >
 			<fieldset>
              	<legend id="alcoholconsmp"> How often do you consume alcohol?  </legend>
@@ -188,14 +188,15 @@
 				  		<label><input type="checkbox" value="never">Never</label>
 
 					</div>
-			</fieldset> -->
-		<!-- </div> --> <!--cont.7-->
-	<!-- 	<br /> -->
-
-<!-- 	 <div class="submitform" data-type="control_button" id="submit"> -->
+			</fieldset> 
+	 </div> <!--cont.7 -->
+	<br /> 
+	 <div class="submitform" data-type="control_button" id="submit"> 
 		<button id="submitForm" type="submit" class="formSubmitButton"> Submit Form </button>
-	<!-- </div> -->
-</div> <!--cont.all>-->
+	</div> 
+</div> <!--cont.all-->
 </form>
-
+<script>
+	$("#new_patient").validate();
+</script>
 <script src="js/form_medical_history.js"></script>
