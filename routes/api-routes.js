@@ -19,11 +19,10 @@ module.exports = function(app) {
   app.post("/api/form/registration", function(req, res){
     // console.log(req.cookies.id)
     //console.log((req.body));
-    console.log(req.body)
 
     db.FormVals.findOne({
       where: {
-        formRoute: req.body.formRoute,
+        formRoute: req.cookies.formRoute,
         userID: req.cookies.id
       }
     }).then(function(response){
@@ -35,7 +34,7 @@ module.exports = function(app) {
         })
       } else {
         db.FormVals.create({
-          formRoute: req.body.formRoute,
+          formRoute: req.cookies.formRoute,
           value: JSON.stringify(req.body.patient),
           userID: req.cookies.id
         })
