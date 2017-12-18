@@ -33,14 +33,55 @@ module.exports = function(app) {
 
   app.post("/api/form/history", function(req, res) {
     // console.log(JSON.stringify(req.body));
+    console.log(req.body)
     db.FormVals.create({
-      formId: 2,
-      value: JSON.stringify(req.body),
-
+      formRoute: req.body.formRoute,
+      value: JSON.stringify(req.body.patient),
+      userID: req.cookies.id
     })
-    .then(function() {
+    .then(function(){
       res.end();
     });
+
+  });
+
+      app.post("/api/form/insurance", function(req, res) {
+    console.log(req.body)
+    db.FormVals.create({
+      formRoute: req.body.formRoute,
+      value: JSON.stringify(req.body.patient),
+      userID: req.cookies.id
+    })
+    .then(function(){
+      res.end();
+    });
+
+  });
+
+   app.post("/api/form/consent", function(req, res) {
+    console.log(req.body)
+    db.FormVals.create({
+      formRoute: req.body.formRoute,
+      value: JSON.stringify(req.body.patient),
+      userID: req.cookies.id
+    })
+    .then(function(){
+      res.end();
+    });
+
+  });
+
+    app.post("/api/form/emergency", function(req, res) {
+    console.log(req.body)
+    db.FormVals.create({
+      formRoute: req.body.formRoute,
+      value: JSON.stringify(req.body.patient),
+      userID: req.cookies.id
+    })
+    .then(function(){
+      res.end();
+    });
+
   });
 
   app.post("/api/user/new", function(req, res) {
