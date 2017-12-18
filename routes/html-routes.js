@@ -139,7 +139,7 @@ module.exports = function(app) {
           formRoute: req.params.forms
         }
       }).then(function(result) {
-            res.render(result.formRoute);
+            res.render(result.formRoute, {layout: false});
             
       });
     }
@@ -147,5 +147,7 @@ module.exports = function(app) {
     else  {
         res.json("Sorry dude.")}
     });   
-    
+    app.get("/validation", function(req, res){
+        res.render("validation", {layout: false})
+    })
 };
