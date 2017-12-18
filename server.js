@@ -29,13 +29,7 @@ app.use(myLogger)
 
 var db = require("./models");
 
-/*
-	*TODO: Create controller
-*/
 
-// var routes = require("./controllers/PLACEHOLDER.js");
-
-// app.use("/", routes);
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
