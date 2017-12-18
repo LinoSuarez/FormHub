@@ -27,8 +27,9 @@ module.exports = function(sequelize, DataTypes) {
 
   // INSERT INTO FormTemplates (formName, formRoute)
   // VALUES 
-  // ("New Patient", "new_patient"),
-  // ("Medical History", "medical_history"),
-  // ("Emergency", "form_emergency"),
-  // ("Consent", "consent"),
-  // ("Insurance", "form_insurance")
+  // (“New Patient”, “new_patient”),
+  // (“Medical History”, “medical_history”),
+  // (“Insurance”, “insurance”),
+  // (“Consent”, “consent”),
+  // (“Emergency Contact”, “form_emergency”);
+  

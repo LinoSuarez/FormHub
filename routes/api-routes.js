@@ -20,14 +20,31 @@ module.exports = function(app) {
     // console.log(req.cookies.id)
     //console.log((req.body));
     console.log(req.body)
-    db.FormVals.create({
-      formRoute: req.body.formRoute,
-      value: JSON.stringify(req.body.patient),
-      userID: req.cookies.id
+
+    db.FormVals.findOne({
+      where: {
+        formRoute: req.body.formRoute,
+        userID: req.cookies.id
+      }
+    }).then(function(response){
+      if (response){
+        response.update({
+          value: JSON.stringify(req.body.patient)
+        }).then(function(){
+          res.end();
+        })
+      } else {
+        db.FormVals.create({
+          formRoute: req.body.formRoute,
+          value: JSON.stringify(req.body.patient),
+          userID: req.cookies.id
+        })
+        .then(function(){
+          res.end();
+        });
+      }
     })
-    .then(function(){
-      res.end();
-    });
+
 
   });
 
