@@ -49,7 +49,7 @@ module.exports = function(app) {
   app.post("/api/form/registration", function(req, res){
     // console.log(req.cookies.id)
     //console.log((req.body));
-
+    // console.log("Dick")
     db.FormVals.findOne({
       where: {
         formRoute: req.cookies.formRoute,
@@ -177,6 +177,7 @@ module.exports = function(app) {
   });
 
     app.post("/api/form/emergency", function(req, res) {
+      console.log("sdfghjk")
     db.FormVals.findOne({
       where: {
         formRoute: req.cookies.formRoute,

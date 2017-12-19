@@ -133,12 +133,14 @@ module.exports = function(app) {
     app.get("/form/:forms?", function(req, res) {
 
     if (req.params.forms) {
-
+        console.log(req.params.forms)
       db.FormTemplates.findOne({
         where: {
           formRoute: req.params.forms
         }
       }).then(function(result) {
+
+            console.log(result)
             res.render(result.formRoute, {layout: false});
             
       });
