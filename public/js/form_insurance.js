@@ -2,8 +2,11 @@ $(document).on("click", "#submit_form", function(event) {
 
 // $("#submit_form").on("click", function (event){
 	event.preventDefault();
+	var completed = false;
 	
 	var newInsurance = {
+	val:
+	{
 		FirstName : $("#FirstName").val().trim(),
 		MiddleName : $("#MiddleName").val().trim(),
 		LastName: $("#LastName").val().trim(),
@@ -18,9 +21,15 @@ $(document).on("click", "#submit_form", function(event) {
 		insCityAddress:$("#insCityAddress").val().trim(),
 		insStateAddress:$("#insStateAddress").val(),
 		insPostalCode:$("#insPostalCode").val().trim(),
-		policyNum:$("#policyNum").val().trim(),
+		policyNum:$("#policyNum").val().trim()
+	},
+
+	completed:complete
 		
-	};
+	}
+
+	setRoute("insurance");
+
 	$.post("/api/form/insurance", newInsurance).done(function(data){
 		console.log(data);
 	});
@@ -28,4 +37,11 @@ $(document).on("click", "#submit_form", function(event) {
 	// $("#MiddleName").val("");
 	// $("#LastName").val("");
 	// $("#emPhoneNum").val("")
+
+	function setRoute(route){
+    var d = new Date();
+    d.setTime(d.getTime() + (30*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = "formRoute" + "=" + route + ";" + expires + ";path=/";
+  }
 });

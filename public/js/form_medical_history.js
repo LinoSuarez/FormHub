@@ -1,23 +1,23 @@
- $("#submitForm").on("click", function(event) {
+$(document).on("click", "#submitForm", function(event) {
     event.preventDefault();
   
+  var completed = false;
+
   var value = {
-    FirstName: $("#FirstName").val().trim(),
+    val: {FirstName: $("#FirstName").val().trim(),
     MiddleName: $("#MiddleName").val().trim(),
     LastName: $("#LastName").val().trim(),
     emPhoneNum: $("#emPhoneNum").val().trim(),
     email: $("#email").val().trim()
-
+  },
+  completed: completed
   }
 
-  var formId = {formId: 1}
+  setRoute("medical_history");
 
-  ;
-
-  console.log(value);
-  console.log(formId);
-  
+  alert(JSON.stringify(value))
   $.post("/api/form/history", value).done(function(data) {
+
     console.log(data);
     });
 
@@ -26,4 +26,11 @@
     $("#LastName").val("");
     $("#emPhoneNum").val("");
     $("#email").val().trim("");
+
+    function setRoute(route){
+    var d = new Date();
+    d.setTime(d.getTime() + (30*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = "formRoute" + "=" + route + ";" + expires + ";path=/";
+  }
 });

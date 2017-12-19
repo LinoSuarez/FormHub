@@ -146,8 +146,13 @@ module.exports = function(app) {
 
     else  {
         res.json("Sorry dude.")}
-    });   
-    app.get("/validation", function(req, res){
-        res.render("validation", {layout: false})
+    });  
+
+    // app.get("/validation", function(req, res){
+    //     res.render("validation", {layout: false})
+    // })
+
+    app.get("/placeholder", function(req,res){
+        res.render("placeholder", {layout:false})
     })
-};
+};    

@@ -1,8 +1,11 @@
 $(document).on("click", "#submit_form", function(event) {
 
 	event.preventDefault();
+	  var completed = false;
+
 	
 	var newEmergency = {
+		val: {
 		FirstName : $("#FirstName").val().trim(),
 		MiddleName:$("#MiddleName").val().trim(),
 		LastName: $("#LastName").val().trim(),
@@ -20,9 +23,21 @@ $(document).on("click", "#submit_form", function(event) {
 		emCountryForm:$(".emCountryForm").val(),
 		relation:$(".relation").val(),
 	
+	},
+	completed:completed
 	};
+
+	setRoute("form_emergency");
+
+
 	$.post("/api/form/emergency", newEmergency).done(function(data){
 		console.log(data);
 	});
 
+	function setRoute(route){
+    var d = new Date();
+    d.setTime(d.getTime() + (30*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = "formRoute" + "=" + route + ";" + expires + ";path=/";
+  }
 });

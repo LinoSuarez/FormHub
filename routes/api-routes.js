@@ -16,10 +16,8 @@ module.exports = function(app) {
 //   });
 
 // });
-  app.post("/api/form/registration", function(req, res){
-    // console.log(req.cookies.id)
-    //console.log((req.body));
-
+  app.post("/api/form/validation", function(req, res) {
+    
     db.FormVals.findOne({
       where: {
         formRoute: req.cookies.formRoute,
@@ -46,57 +44,167 @@ module.exports = function(app) {
 
 
   });
+  
 
-  app.post("/api/form/history", function(req, res) {
-    // console.log(JSON.stringify(req.body));
-    console.log(req.body)
-    db.FormVals.create({
-      formRoute: req.body.formRoute,
-      value: JSON.stringify(req.body.patient),
-      userID: req.cookies.id
+  app.post("/api/form/registration", function(req, res){
+    // console.log(req.cookies.id)
+    //console.log((req.body));
+
+    db.FormVals.findOne({
+      where: {
+        formRoute: req.cookies.formRoute,
+        userID: req.cookies.id
+      }
+    }).then(function(response){
+      if (response){
+        response.update({
+          value: JSON.stringify(req.body.patient)
+        }).then(function(){
+          res.send(response);
+        })
+      } else {
+        db.FormVals.create({
+          formRoute: req.cookies.formRoute,
+          value: JSON.stringify(req.body.patient),
+          userID: req.cookies.id
+        })
+        .then(function(){
+          res.send("hi");
+        });
+      }
     })
-    .then(function(){
-      res.end();
-    });
+
 
   });
 
-      app.post("/api/form/insurance", function(req, res) {
-    console.log(req.body)
-    db.FormVals.create({
-      formRoute: req.body.formRoute,
-      value: JSON.stringify(req.body.patient),
-      userID: req.cookies.id
+  app.post("/api/form/history", function(req, res) {
+    
+    // console.log(JSON.stringify(req.body));
+    db.FormVals.findOne({
+      where: {
+        formRoute: req.cookies.formRoute,
+        userID: req.cookies.id
+      }
+    }).then(function(response){
+
+      if (response){
+        console.log(req.body.val)
+        response.update({
+          value: JSON.stringify(req.body.val)
+        }).then(function(){
+          res.send(response);
+        })
+      } else {
+        db.FormVals.create({
+
+          formRoute: req.cookies.formRoute,
+          value: JSON.stringify(req.body.val),
+          userID: req.cookies.id
+        })
+        .then(function(){
+          console.log(req.cookies, req.body)
+          res.send(response);
+        });
+      }
     })
-    .then(function(){
-      res.end();
-    });
+
+
+  });
+
+    app.post("/api/form/insurance", function(req, res) {
+
+    db.FormVals.findOne({
+      where: {
+        formRoute: req.cookies.formRoute,
+        userID: req.cookies.id
+      }
+    }).then(function(response){
+
+      if (response){
+        console.log(req.body.val)
+        response.update({
+          value: JSON.stringify(req.body.val)
+        }).then(function(){
+          res.send(response);
+        })
+      } else {
+        db.FormVals.create({
+
+          formRoute: req.cookies.formRoute,
+          value: JSON.stringify(req.body.val),
+          userID: req.cookies.id
+        })
+        .then(function(){
+          console.log(req.cookies, req.body)
+          res.send(response);
+        });
+      }
+    })
+
 
   });
 
    app.post("/api/form/consent", function(req, res) {
-    console.log(req.body)
-    db.FormVals.create({
-      formRoute: req.body.formRoute,
-      value: JSON.stringify(req.body.patient),
-      userID: req.cookies.id
+  db.FormVals.findOne({
+      where: {
+        formRoute: req.cookies.formRoute,
+        userID: req.cookies.id
+      }
+    }).then(function(response){
+
+      if (response){
+        console.log(req.body.val)
+        response.update({
+          value: JSON.stringify(req.body.val)
+        }).then(function(){
+          res.send(response);
+        })
+      } else {
+        db.FormVals.create({
+
+          formRoute: req.cookies.formRoute,
+          value: JSON.stringify(req.body.val),
+          userID: req.cookies.id
+        })
+        .then(function(){
+          console.log(req.cookies, req.body)
+          res.send(response);
+        });
+      }
     })
-    .then(function(){
-      res.end();
-    });
+
 
   });
 
     app.post("/api/form/emergency", function(req, res) {
-    console.log(req.body)
-    db.FormVals.create({
-      formRoute: req.body.formRoute,
-      value: JSON.stringify(req.body.patient),
-      userID: req.cookies.id
+    db.FormVals.findOne({
+      where: {
+        formRoute: req.cookies.formRoute,
+        userID: req.cookies.id
+      }
+    }).then(function(response){
+
+      if (response){
+        console.log(req.body.val)
+        response.update({
+          value: JSON.stringify(req.body.val)
+        }).then(function(){
+          res.send(response);
+        })
+      } else {
+        db.FormVals.create({
+
+          formRoute: req.cookies.formRoute,
+          value: JSON.stringify(req.body.val),
+          userID: req.cookies.id
+        })
+        .then(function(){
+          console.log(req.cookies, req.body)
+          res.send(response);
+        });
+      }
     })
-    .then(function(){
-      res.end();
-    });
+
 
   });
 

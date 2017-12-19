@@ -2,7 +2,7 @@ $(document).on("click", "#submit_form", function(event) {
 
 // $("#submit_form").on("click", function (event){
 	event.preventDefault();
-	// console.log("are u working?");
+	console.log("are u working?");
 
 	var completed = false;
 
