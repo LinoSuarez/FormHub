@@ -14,6 +14,7 @@
       token.set(data.token);
       id.set(data.id)
       username.set(newUser.username)
+      formatedName.set(data.name)
       window.location = "/";
     });
 

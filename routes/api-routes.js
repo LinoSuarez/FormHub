@@ -122,7 +122,7 @@ module.exports = function(app) {
           id: dbDoctor.id
         }
       }).then(function(){
-        res.json({token: token, id: dbDoctor.id})
+        res.json({token: token, id: dbDoctor.id, name: answer.name})
       })
     } else {
       res.json(false)
@@ -149,7 +149,7 @@ module.exports = function(app) {
             id: answer.id
           }
         }).then(function(){
-          res.json({token: token, id: answer.id})
+          res.json({token: token, id: answer.id, name: answer.name})
         })
       } else {
         res.json(false);
@@ -187,6 +187,17 @@ module.exports = function(app) {
       })
       res.json(emails)
     })
+  })
+
+  app.post("/mail/send", function(req, res){
+    console.log(req.body.email, req.body.doctor)
+    console.log("hi")
+    var emailSender = require("../mail.js")({
+      to: req.body.email,
+      subject: 'FormHub [request]',
+      message: '<h2>Welcome to FormHub!</h2><p>Please visit FormHub to complete the required forms for Dr. ' +  req.body.doctor
+    })
+    res.end();
   })
 };
 

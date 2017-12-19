@@ -18,6 +18,16 @@ $("#formSubmit").on("click", function(){
         email: email
     }).then(function(x){
         // console.log(x)
+
+
+            $.post("/mail/send", {email: $("#patientEmail").val(), doctor: formatedName.get()}).then(function(){
+                $.gritter.add({
+                    title: "Form request submited!",
+                    text: "e-mail has been send to the patient.",
+                    image: "/assets/img/health.png"
+                })
+            })
+   
     })
 })
 
@@ -27,3 +37,12 @@ $.post("/api/doctos/client/autocomplete").then(function(data){
         source: data
     });
 })
+
+
+// $.gritter.add({
+//     title: "Form request submited!",
+//     text: "e-mail has been send to the patient."
+// })
+// $("").click(function(){
+
+// })

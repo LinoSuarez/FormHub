@@ -10,6 +10,7 @@ $("#add-btn").on("click", function(event) {
       .done(function(data) {
         // console.log("hi")
         token.set(data.token);
+        formatedName.set(data.name)
         id.set(data.id)
         username.set(user.username)
         
