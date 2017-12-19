@@ -131,7 +131,7 @@ module.exports = function(app) {
       })
 
     app.get("/form/:forms?", function(req, res) {
-
+        console.log(req.params.forms)
     if (req.params.forms) {
         console.log(req.params.forms)
       db.FormTemplates.findOne({
