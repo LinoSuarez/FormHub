@@ -105,7 +105,7 @@
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                             </div>
-                            <h4 class="panel-title">Alerts</h4>
+                            <h4 class="panel-title">Forms</h4>
                         </div>
                         <div class="panel-body">
 							
@@ -126,7 +126,7 @@
                            {{/each}}
                         </tbody>
                      </table>
-                            
+                            <button id="createURL" type="button" class="btn btn-primary m-r-5 m-b-5">Share</button>
 							
                         </div>
                     </div>
@@ -191,6 +191,14 @@
 	  <script>
 		  $('#formLoaderArea').load('/form/validation');
 	  </script>
+
+     <script>
+          $("#createURL").click(function(){
+              $.post("/print/forms/add").then(function(response){
+                  console.log(response)
+              })
+          })
+      </script>
 {{!-- formLoaderArea --}}
 
       {{!-- 

@@ -308,5 +308,25 @@ module.exports = function(app) {
     })
     res.end();
   })
+
+  app.post("/print/forms/add", function(req, res){
+    console.log("hi")
+    db.Print.create({
+      userID: req.cookies.id,
+      rand: makeid()
+    }).then(function(x){
+      res.json("/print/forms/" + x.userID + "/" + x.rand)
+    })
+  })
+
+function makeid() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 38; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}
 };
 

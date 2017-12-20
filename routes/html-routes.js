@@ -157,4 +157,29 @@ module.exports = function(app) {
     app.get("/placeholder", function(req,res){
         res.render("placeholder", {layout:false})
     })
+
+    app.get("/print/forms/:id/:rand", function(req, res){
+        // console.log("wtf")
+        if (req.params.rand) {
+            // console.log(req.params.rand)
+            // res.json("hi")
+            console.log(req.params.id,req.params.rand)
+            db.Print.findOne({
+                where : {
+                    userID: req.params.id,
+                    rand: req.params.rand
+                }
+            }).then(function(response){
+                db.FormVals.findAll({
+                    where: {
+                        userID: response.userID
+                    }
+                }).then(function(response2){
+
+                    res.render("printForms", {res: response2}, {name, id: id})
+                })
+                
+            })
+        }
+    });
 };    
