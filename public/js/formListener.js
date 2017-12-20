@@ -2,9 +2,16 @@ $(document).on("click", "#submit_new_patient", function(event) {
 
     // $("#submit_form").on("click", function (event){
         event.preventDefault();
-         console.log("are u working?");
+         // console.log("are u working?");
+         // console.log("check" + $(".medTaking:checked").val());
     
         var completed = false;
+
+            var select = $(".medTaking:checked");
+            var allSelected = [];
+            for (var i = 0; i < select.length; i++) {
+                allSelected.push(select[i].value);
+            }
     
         // if ($("#FirstName").val().trim().length > 1 && $("#MiddleName").val().trim() && )
         var newPt = {
@@ -32,7 +39,7 @@ $(document).on("click", "#submit_new_patient", function(event) {
                 emlastName:$("#emlastName").val().trim(),
                 emPhoneNum:$("#emPhoneNum").val().trim(),
                 emRelation:$("#emRelation").val().trim(),
-                medTaking:$(".medTaking").val().trim(),
+                medTaking:allSelected,
             },
             completed: completed
         }
@@ -60,6 +67,25 @@ $(document).on("click", "#submit_new_patient", function(event) {
     $(document).on("click", "#submit_form_history", function(event) {
         event.preventDefault();
       
+ form_selection
+            var completed = false;
+            
+      var value = {
+        val: {
+        FirstName: $("#FirstName").val().trim(),
+        MiddleName: $("#MiddleName").val().trim(),
+        LastName: $("#LastName").val().trim(),
+        emPhoneNum: $("#emPhoneNum").val().trim(),
+        email: $("#email").val().trim(),
+      },
+      completed: completed
+      }
+    
+      setRoute("medical_history");
+    
+      // alert(JSON.stringify(value))
+      $.post("/api/form/history", value).done(function(data) {
+
         var completed = false;
         var condsVal = [];
         var sympVals = [];
@@ -89,6 +115,7 @@ $(document).on("click", "#submit_new_patient", function(event) {
         },
             completed: completed
         };
+
     
         setRoute("medical_history");
         // alert(JSON.stringify(value))
@@ -114,17 +141,27 @@ $(document).on("click", "#submit_new_patient", function(event) {
     $(document).on("click", "#submit_form_emergency", function(event) {
         // alert("ho")
         event.preventDefault();
+
+          var completed = false;
+            var select = $(".relation:checked");
+            var allSelected = [];
+            for (var i = 0; i < select.length; i++) {
+                allSelected.push(select[i].value);
+            }
+
+
         var completed = false;
     
         
+
         var newEmergency = {
             val: {
             FirstName : $("#FirstName").val().trim(),
             MiddleName:$("#MiddleName").val().trim(),
             LastName: $("#LastName").val().trim(),
-            PhoneNum: $("#PhoneNum").val().trim(),
-            email:$("#email").val().trim(),
-            emFirstName:$("#emFirstName").val().trim(),
+            PhoneNum: $("#PhoneNum").val(),
+            email:$("#email").val(),
+            emFirstName:$("#emFirstName").val(),
             emLastName : $("#emLastName").val().trim(),
             emPhoneNum: $("#emPhoneNum").val().trim(),
             emEmail: $("#emEmail").val(),
@@ -134,7 +171,7 @@ $(document).on("click", "#submit_new_patient", function(event) {
             emStateAddress: $("#emStateAddress").val(),
             emPostalCode: $("#emPostalCode").val(),
             emCountryForm:$(".emCountryForm").val(),
-            relation:$(".relation").val(),
+            relation: allSelected,
         
         },
         completed:completed
@@ -162,7 +199,7 @@ $(document).on("click", "#submit_new_patient", function(event) {
             var newConsent = {
                 val:
             {	
-                consentYesNo:$(".consentYesNo").val().trim(),
+                consentYesNo:$(".consentYesNo").val(),
                 FirstName : $("#FirstName").val().trim(),
                 LastName: $("#LastName").val().trim(),
                 consentMonth: $(".consentMonth").val(),
