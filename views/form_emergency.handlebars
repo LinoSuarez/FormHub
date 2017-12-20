@@ -101,14 +101,14 @@
 		<div class = "containerRelationship" >
 			<fieldset>
                 <legend id="relation"> Relationship with Patient  </legend>
-             		<div class="relation" id= "ptRelation" data-parsley-required="true" data-parsley-trigger="change" required="">
-				  		<label><input type="checkbox" value="parent">Parent</label>
-				  		<label><input type="checkbox" value="child">Child</label>
-				  		<label><input type="checkbox" value="sibling">Sibling</label>
-				  		<label><input type="checkbox" value="friend">Friend</label>
-				  		<label><input type="checkbox" value="other">Other</label>
+             		<form name="relation" id= "ptRelation" data-parsley-required="true" data-parsley-trigger="change" required="">
+				  		<label><input class = "relation" type="checkbox" value="parent">Parent</label>
+				  		<label><input class = "relation" type="checkbox" value="child">Child</label>
+				  		<label><input class = "relation"  type="checkbox" value="sibling">Sibling</label>
+				  		<label><input class = "relation"  type="checkbox" value="friend">Friend</label>
+				  		<label><input class = "relation"  type="checkbox" value="other">Other</label>
 				  		
-					</div>
+					</form>
 			<br />
 
 				 <div style = "text-align: center; " class="submitform" data-type="control_button" id="submit">
