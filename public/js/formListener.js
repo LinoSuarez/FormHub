@@ -67,6 +67,7 @@ $(document).on("click", "#submit_new_patient", function(event) {
     $(document).on("click", "#submit_form_history", function(event) {
         event.preventDefault();
       
+ form_selection
             var completed = false;
             
       var value = {
@@ -84,7 +85,41 @@ $(document).on("click", "#submit_new_patient", function(event) {
     
       // alert(JSON.stringify(value))
       $.post("/api/form/history", value).done(function(data) {
+
+        var completed = false;
+        var condsVal = [];
+        var sympVals = [];
+
+        $(".condsVals:checked").each(function(i){
+            condsVal[i] = $(this).val();
+        })
+        $(".sympVals:checked").each(function(i){
+            sympVals[i] = $(this).val();
+        })
+        console.log(condsVal);
+        console.log(sympVals);
     
+        var value = {
+            val: {FirstName: $("#FirstName").val().trim(),
+            MiddleName: $("#MiddleName").val().trim(),
+            LastName: $("#LastName").val().trim(),
+            emPhoneNum: $("#emPhoneNum").val().trim(),
+            email: $("#email").val().trim(),
+            condsVal: condsVal,
+            sympVals: sympVals,
+            medz: $(".medz:checked").val(),
+            gender: $('.ptGenderForm option:selected').text(),
+            smoke: $(".smokez:checked").val(),
+            drugs: $(".drugz:checked").val(),
+            booze: $(".drankz:checked").val()
+        },
+            completed: completed
+        };
+
+    
+        setRoute("medical_history");
+        // alert(JSON.stringify(value))
+        $.post("/api/form/history", value).done(function(data) {
         // console.log(data);
         });
     
@@ -99,19 +134,25 @@ $(document).on("click", "#submit_new_patient", function(event) {
         d.setTime(d.getTime() + (30*24*60*60*1000));
         var expires = "expires="+ d.toUTCString();
         document.cookie = "formRoute" + "=" + route + ";" + expires + ";path=/";
-      }
+        }
     });
     
 
     $(document).on("click", "#submit_form_emergency", function(event) {
         // alert("ho")
         event.preventDefault();
+
           var completed = false;
             var select = $(".relation:checked");
             var allSelected = [];
             for (var i = 0; i < select.length; i++) {
                 allSelected.push(select[i].value);
             }
+
+
+        var completed = false;
+    
+        
 
         var newEmergency = {
             val: {
