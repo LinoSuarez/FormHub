@@ -67,7 +67,7 @@ $(document).on("click", "#submit_new_patient", function(event) {
     $(document).on("click", "#submit_form_history", function(event) {
         event.preventDefault();
       
- form_selection
+ // form_selection
             var completed = false;
             
       var value = {
@@ -85,6 +85,7 @@ $(document).on("click", "#submit_new_patient", function(event) {
     
       // alert(JSON.stringify(value))
       $.post("/api/form/history", value).done(function(data) {
+      });
 
         var completed = false;
         var condsVal = [];
@@ -149,11 +150,6 @@ $(document).on("click", "#submit_new_patient", function(event) {
                 allSelected.push(select[i].value);
             }
 
-
-        var completed = false;
-    
-        
-
         var newEmergency = {
             val: {
             FirstName : $("#FirstName").val().trim(),
@@ -175,7 +171,7 @@ $(document).on("click", "#submit_new_patient", function(event) {
         
         },
         completed:completed
-        };
+    };
     
         setRoute("form_emergency");
     
@@ -228,6 +224,7 @@ $(document).on("click", "#submit_new_patient", function(event) {
           }
         
         });
+
         $(document).on("click", "#submit_insurance_form", function(event) {
 
             // $("#submit_form").on("click", function (event){
