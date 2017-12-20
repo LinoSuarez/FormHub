@@ -1,7 +1,3 @@
-
-
-<form id="form_history" value="2" data-parsley-validate="">
-
 <div class = "container">
 	<div class = "containerHeader" > 
 		<div class = "row">
@@ -12,8 +8,10 @@
 		</div>
 	</div> 
 	<!--cont.1>-->
+<form id="form_history" value="2" data-parsley-validate="">
 	
 	<div class = "containerAddress" >
+
 		<fieldset>
             <legend id="address"> Please fill in the form below </legend>
                 <div class="ptFullName">
@@ -26,12 +24,12 @@
                 </div>
                 <br />
                 <div class="ptPhoneEmail">
-                	
-                	<input style="width: 20%" id="emPhoneNum" name="emPhone" placeholder="Phone Number" type="" value="" data-parsley-required="true" data-parsley-trigger="change" required=""/>
                 	<label class="emPhoneNum" for="emPhoneNumber">Phone Number</label>
-     
+
+                	<input style="width: 20%" id="emPhoneNum" name="emPhone" placeholder="Phone Number" type="" value="" data-parsley-required="true" data-parsley-trigger="change" required=""/>
+                         <label class="ptEmailLabel" for="Email">Email</label>
+
                     <input class="input-xxlarge" id="email" name="email" placeholder="email" type="text" value="" data-parsley-required="true" data-parsley-trigger="change" required=""/>
-                    <label class="ptEmailLabel" for="Email">Email</label>
                    
          
                 </div>
@@ -39,44 +37,34 @@
 	</div> 
 <!--cont.2>-->
 		<br />
+
 	<div class = "containerCondition" > 
 		<fieldset>
-            <legend id="condition"> Check the conditions that applay to you or to any members of your immediate relatives </legend>
+            <legend id="condition"> Select all genetically predisposed conditions </legend>
              	<div class = "medCase" id="ptMedHistory">
-                	<span class="ptConditionInformation">
-						<input type="checkbox" value="asthma"> 
+ 						<input type="checkbox" name="conds" class="condsVals" value="asthma"> 
 						<label id="asth"> Asthma</label>
-					</span>
 					<br />
-					<span class="ptConditionInformation">
-						<input type="checkbox" value="cancer"> 
+ 						<input type="checkbox" name="conds" class="condsVals" value="cancer"> 
 						<label id="canc"> Cancer</label>
-					</span>
+
 					<br />
-					<span class="ptConditionInformation">
-						<input type="checkbox" value="cardiac disease"> 
+
+ 						<input type="checkbox" name="conds" class="condsVals" value="cardiac disease"> 
 						<label id="cardiac"> Cardiac disease</label>
-					</span>
+
 					<br />
-					<span class="ptConditionInformation">
-						<input type="checkbox" value="diabetes"> 
+						<input type="checkbox" name="conds" class="condsVals" value="diabetes"> 
 						<label id="diab"> Diabetes</label>
-					</span>
 					<br />
-					<span class="ptConditionInformation">
-						<input type="checkbox" value="hypertension"> 
+						<input type="checkbox" name="conds" class="condsVals" value="hypertension"> 
 						<label id="hyperte"> Hypertension</label>
-					</span>
 					<br />
-					<span class="ptConditionInformation">
-						<input type="checkbox" value="psychiatric disorder"> 
+						<input type="checkbox" name="conds" class="condsVals" value="psychiatric disorder"> 
 						<label id="psych"> Psychiatric disorder</label>
-					</span>
 					<br />
-					<span class="ptConditionInformation">
-						<input type="checkbox" value="epilepsy"> 
+						<input type="checkbox" name="conds" class="condsVals" value="epilepsy"> 
 						<label id="epil"> Epilepsy</label>
-					</span>
 					<br />
 						
 				</div>		          
@@ -87,67 +75,55 @@
 	<br />
 		<div class = "containerSymptom" > 
 		<fieldset>
-            <legend id="symptom"> Check the syptom that you're currently experiencing </legend>
+            <legend id="symptom"> Select all symptoms you're experiencing </legend>
              	<div class = "medSymp" id="ptSymp">
-                	<span class="ptSyptomInformation">
-						<input type="checkbox" value="chest pain"> 
+						<input type="checkbox" name="symps" class="sympVals" value="chest pain"> 
 						<label id="chest"> Chest Pain</label>
-					</span>
 					<br />
-					<span class="ptSyptomInformation">
-						<input type="checkbox" value="Respiratory"> 
+						<input type="checkbox" name="symps" class="sympVals" value="Respiratory"> 
 						<label id="resp"> Respiratory</label>
-					</span>
 					<br />
-					<span class="ptSyptomInformation">
-						<input type="checkbox" value="Cardiac disease Symptom"> 
+						<input type="checkbox" name="symps" class="sympVals" value="Cardiac disease Symptom"> 
 						<label id="cardiacsym"> Cardiac disease</label>
-					</span>
 					<br />
-					<span class="ptSyptomInformation">
-						<input type="checkbox" value="cardiovascular"> 
+						<input type="checkbox" name="symps" class="sympVals" value="cardiovascular"> 
 						<label id="diab"> Cardiovascular</label>
-					</span>
 					<br />
-					<span class="ptSyptomInformation">
-						<input type="checkbox" value="hematological"> 
+						<input type="checkbox" name="symps" class="sympVals" value="hematological"> 
 						<label id="hema"> Hematological</label>
-					</span>
 					<br />
-					<span class="ptSyptomInformation">
-						<input type="checkbox" value="lymphatic"> 
+						<input type="checkbox" name="symps" class="sympVals" value="lymphatic"> 
 						<label id="lymph"> Lymphatic</label>
-					</span>
 					<br />
-					<span class="ptSyptomInformation">
-						<input type="checkbox" value="neurological"> 
+						<input type="checkbox" name="symps" class="sympVals" value="neurological"> 
 						<label id="neuro"> Neurological</label>
-					</span>
 					<br />
 						
 				</div>		          
         	</fieldset>
-		</div> <!--cont.4>-->
-		<!-- <br />
+		</div> 
+		<!--cont.4>-->
+		<br />
 		<div class = "containerMed" >
 			<fieldset>
              	<legend id="currentMed"> Taking any medications, currently?  </legend>
              		<div class="medTaking" id= "medYesNo">
-				  		<label><input type="checkbox" value="yes">Yes</label>
-				  		<label><input type="checkbox" value="No">No</label>
+				  		<label><input type="radio" name="meds" class="medz" value="yes">Yes</label>
+				  		<label><input type="radio" name="meds" class="medz" value="No">No</label>
 					</div>
-			</fieldset> -->
-		<!-- </div>  --><!--cont.5-->
-		<!-- <br /> -->
+			</fieldset>
+		</div> 
+		<!--cont.5-->
+		<br />
 
 		<div class = "containerMed" >
 			<fieldset>
-             	<legend id="currentMed"> What is your Gender?  </legend>
+             	<legend id="gGender"> What is your Gender?  </legend>
 		 			<div class="gender" id= "selectGender"> 
 	                	<label class= "ptGender" id="selectGender" for="ptGender"> Sex </label>
 	                	<br />
 						<select class="ptGenderForm" style="width:150px">
-						    <option value="">  </option>
+						    <option value=""> Select one </option>
 				            <option value="Male"> Male </option>
 				            <option value="Female"> Female </option>
 				            <option value="N/A"> N/A </option>
@@ -161,32 +137,36 @@
 			<fieldset>
              	<legend id="tobaccotake"> Do you use or do you have history of using tobacco?  </legend>
              		<div class="tobaccoTaking" id= "tobacccoYesNo">
-				  		<label><input type="checkbox" value="yestobacco">Yes</label>
-				  		<label><input type="checkbox" value="Notobacco">No</label>
+				  		<label><input type="radio" name="smokes" class="smokez" value="yestobacco">Yes</label>
+				  		<label><input type="radio" name="smokes" class="smokez" value="Notobacco">No</label>
 					</div>
 			</fieldset>
 		 </div> 
+
 		 <br />
+
 		<div class = "containerIllDrugs" >
 			<fieldset>
              	<legend id="illegalDrugs"> Do you use or do you have history of using illegal drugs?  </legend>
              		<div class="illegalDrugTaking" id= "illDrugYesNo">
-				  		<label><input type="checkbox" value="yes illegal drugs">Yes</label>
-				  		<label><input type="checkbox" value="No illegal drugs">No</label>
+				  		<label><input type="radio" value="yes illegal drugs" class="drugz" name="drugs" checked>Yes</label>
+				  		<label><input type="radio" value="No illegal drugs" class="drugz" name="drugs"  >No</label>
 					</div>
-			</fieldset> -->
+			</fieldset> 
 		</div> 
+
 		<!--cont.6-->
+
 		 <br />
 		<div class = "containerAlcohol" >
 			<fieldset>
              	<legend id="alcoholconsmp"> How often do you consume alcohol?  </legend>
              		<div class="alcoholTaking" id= "alcoholYesNo">
-				  		<label><input type="checkbox" value="daily">Daily</label>
-				  		<label><input type="checkbox" value="weekly">Weekly</label>
-				  		<label><input type="checkbox" value="monthly">Monthly</label>
-				  		<label><input type="checkbox" value="occasionally">Occasionally</label>
-				  		<label><input type="checkbox" value="never">Never</label>
+				  		<label><input class="form-check-input" type="radio" name="booze" class="drankz" value="daily" checked>Daily</label>
+				  		<label><input class="form-check-input" type="radio" name="booze" class="drankz" value="weekly">Weekly</label>
+				  		<label><input class="form-check-input" type="radio" name="booze" class="drankz" value="monthly">Monthly</label>
+				  		<label><input class="form-check-input" type="radio" name="booze" class="drankz" value="occasionally">Occasionally</label>
+				  		<label><input class="form-check-input" type="radio" name="booze" class="drankz" value="never">Never</label>
 
 					</div>
 			</fieldset> 
@@ -196,13 +176,5 @@
 	 <div class="submitform" data-type="control_button" id="submit"> 
 		<button id="submit_form_history" type="submit" class="formSubmitButton"> Submit Form </button>
 	</div> 
+</form>	
 </div> 
-<!--cont.all-->
-</form>
-{{!-- <script>
-	{{!-- $("#form_history").validate(); --}}
-</script> --}}
-{{!-- <script src="/assets/plugins/parsley/dist/parsley.js"></script> --}}
-{{!-- <script src="/js/form_medical_history.js"></script> --}}
-
-
