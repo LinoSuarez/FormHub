@@ -66,10 +66,19 @@ $(document).on("click", "#submit_new_patient", function(event) {
     
     $(document).on("click", "#submit_form_history", function(event) {
         event.preventDefault();
-      
- // form_selection
+       var completed = false;
+            var condsVal = [];
+            var sympVals = [];
             var completed = false;
-            
+
+            $(".condsVals:checked").each(function(i){
+            condsVal[i] = $(this).val();
+        })
+            $(".sympVals:checked").each(function(i){
+            sympVals[i] = $(this).val();
+        })
+
+  // form_selection           
       var value = {
         val: {
         FirstName: $("#FirstName").val().trim(),
@@ -77,6 +86,13 @@ $(document).on("click", "#submit_new_patient", function(event) {
         LastName: $("#LastName").val().trim(),
         emPhoneNum: $("#emPhoneNum").val().trim(),
         email: $("#email").val().trim(),
+            condsVal: condsVal,
+            sympVals: sympVals,
+            medz: $(".medz:checked").val(),
+            gender: $('.ptGenderForm option:selected').text(),
+            smoke: $(".smokez:checked").val(),
+            drugs: $(".drugz:checked").val(),
+            booze: $(".drankz:checked").val()
       },
       completed: completed
       }
@@ -85,44 +101,11 @@ $(document).on("click", "#submit_new_patient", function(event) {
     
       // alert(JSON.stringify(value))
       $.post("/api/form/history", value).done(function(data) {
-      });
-
-        var completed = false;
-        var condsVal = [];
-        var sympVals = [];
-
-        $(".condsVals:checked").each(function(i){
-            condsVal[i] = $(this).val();
-        })
-        $(".sympVals:checked").each(function(i){
-            sympVals[i] = $(this).val();
-        })
+        console.log(data);
         console.log(condsVal);
         console.log(sympVals);
-    
-        var value = {
-            val: {FirstName: $("#FirstName").val().trim(),
-            MiddleName: $("#MiddleName").val().trim(),
-            LastName: $("#LastName").val().trim(),
-            emPhoneNum: $("#emPhoneNum").val().trim(),
-            email: $("#email").val().trim(),
-            condsVal: condsVal,
-            sympVals: sympVals,
-            medz: $(".medz:checked").val(),
-            gender: $('.ptGenderForm option:selected').text(),
-            smoke: $(".smokez:checked").val(),
-            drugs: $(".drugz:checked").val(),
-            booze: $(".drankz:checked").val()
-        },
-            completed: completed
-        };
 
-    
-        setRoute("medical_history");
-        // alert(JSON.stringify(value))
-        $.post("/api/form/history", value).done(function(data) {
-        // console.log(data);
-        });
+      });
     
         $("#FirstName").val("");
         $("#MiddleName").val("");
@@ -260,10 +243,7 @@ $(document).on("click", "#submit_new_patient", function(event) {
                 $.post("/api/form/insurance", newInsurance).done(function(data){
                     console.log(data);
                 });
-                // $("#FirstName").val("");
-                // $("#MiddleName").val("");
-                // $("#LastName").val("");
-                // $("#emPhoneNum").val("")
+          
             
                 function setRoute(route){
                 var d = new Date();
